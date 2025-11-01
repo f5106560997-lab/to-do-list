@@ -7,8 +7,8 @@ const todoRoutes = require("./Routes/TodoRoutes");
 const app = express();
 
 // Middleware
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 
 // Connect DB
 connectDB();
