@@ -149,7 +149,7 @@ const TodoList = ({ reload }) => {
   // Fetch all todos
   const getAllTodos = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/todolist/getall");
+      const response = await axios.get("https://to-do-list-backend-zow8.onrender.com/todolist/getall");
       const safeTodos = response.data.data.map((todo) => ({
         ...todo,
         message: typeof todo.message === "string" ? todo.message : String(todo.message),
@@ -168,7 +168,7 @@ const TodoList = ({ reload }) => {
   // Delete a todo
   const handleDelete = async (id) => {
     try {
-      const result = await axios.delete(`http://localhost:8000/todolist/deleteTodo/${id}`);
+      const result = await axios.delete(`https://to-do-list-backend-zow8.onrender.com/todolist/deleteTodo/${id}`);
       if (result.data.success) {
         toast.success("Todo deleted successfully!");
         getAllTodos();
@@ -197,7 +197,7 @@ const TodoList = ({ reload }) => {
     }
     try {
       const result = await axios.put(
-        `http://localhost:8000/todolist/updateToDo/${currentTodo._id}`,
+        `https://to-do-list-backend-zow8.onrender.com/todolist/updateToDo/${currentTodo._id}`,
         { message: currentTodo.message }
       );
       if (result.data.success) {
